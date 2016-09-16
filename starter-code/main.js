@@ -3,16 +3,19 @@ var cards = ["queen", "queen", "king", "king"];
 var cardsInPlay = [],
   cardsInPlayIds = [];
 
-//With reference to unit solutions provide on GA website//
+//============================//
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
+  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
+    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
+    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
@@ -31,6 +34,9 @@ var resetCards = function(){
 var isTwoCards = function() {
   var dataCard = this.getAttribute('data-card');
   var dataId = this.getAttribute('data-id');
+  // add card to array of cards in play
+  // 'this' hasn't been covered in this prework, but
+  // for now, just know it gives you access to the card the user clicked on
   if (cardsInPlay.length === 1 && cardsInPlayIds[0] === dataId) {
     return;
   }
@@ -42,10 +48,13 @@ var isTwoCards = function() {
   } else {
     this.innerHTML = '<img src="http://i.imgur.com/jWQ9eke.jpg">';
   }
+  // if you have two cards in play check for a match
   if (cardsInPlay.length === 2) {
 
+    // pass the cardsInPlay as an argument to isMatch function
     var isMatched = isMatch(cardsInPlay);
 
+    // clear cards in play array for next try
     cardsInPlay = [];
     cardsInPlayIds = [];
 
@@ -84,6 +93,7 @@ var createBoard = function() {
     cardElement.setAttribute('data-id', i);
     cardElement.addEventListener('click', isTwoCards);
     board.appendChild(cardElement);
+    // board.appendChild(cardElement);
   }
 }
 
