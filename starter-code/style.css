@@ -46,22 +46,25 @@ a:hover {
     height: 150px;
     border: 1px solid #000000;
     background-color: yellow; 
-    border-radius:20px;
-    margin:8%;
+    border-radius:10px;
+    margin:10%;
     float: left;
-
-  
 }
 
 .board {
     display:inline-block;
     width: 50%;
     height: 80%;
-    background: green;
-    
+    background: green; 
 }
 
 .name 
 {color: #ff0000;
 font-size: 20px;
 }
+
+img {
+    height: 200px;
+  width: 150px;
+}
+
